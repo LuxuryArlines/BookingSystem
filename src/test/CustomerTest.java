@@ -25,5 +25,9 @@ public class CustomerTest {
 		assertTrue(booking.getNumberOfBookings()==1);
 		
 	}
+	
+	
+	
+	
 
 }
