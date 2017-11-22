@@ -15,8 +15,10 @@ public class CustomerTest {
 		
 		
 		//Prepare
-		Customer customer= new Customer("Sven","Svensson","sven@svensson@gmail.com");
+		Customer customer= new Customer(1, 2, "sujitha", "yeruva", "07332", "sujitha@");
 		//Act
+		customer.setPreference(2, 'c');
+		
 		Booking booking = new Booking(customer);
 		booking.AddBooking(customer);
 		//Assert
