@@ -4,77 +4,60 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
 
+import models.Customer;
+
 public class InputMenu {
- public static void main(String[] args) {
+	public static void main(String[] args) {
 
-    int MenuList;  
-    String myOrder = "No order currently set"; 
-do{  
-    System.out.println("---MENU---");
-    String[] menu = {"[1]item list","[2]sales","[3]print","[4]exit"};
-    for (int i=0;i<4;i++) {
-        System.out.println(menu[i]);
-    }
+		int MenuList;
+		String myOrder="";
+		do {
+			System.out.println("---MENU---");
+			String[] menu = { "[1]Flight", "[2]Customer/passenger", "[3]Print total",
+					"[4]Order information", "[5]Food Item list","[6]Company",
+					"[7]Exit" };
+			for (int i = 0; i < menu.length; i++) {
+				System.out.println(menu[i]);
+			}
 
+			String MenuString = JOptionPane.showInputDialog(null, " Choose number: ");
+			MenuList = Integer.parseInt(MenuString);
+			
+			switch (MenuList) {
+			case 1:
+				RetrieveFlightInfo();
+			break;
+			case 2:
+				Customer customer = new Customer(1, 2, "sujitha", "yeruva", "07332", "sujitha");
+				customer.setPreference(2, 'c');
+			break;
+			case 3:
+				JOptionPane.showMessageDialog(null, myOrder);
+			break;
+			case 4:
+				JOptionPane.showMessageDialog(null, "sales \n" + myOrder);
+			break;
+			case 5:
+				FoodOrder foodOrder= new FoodOrder();
+				myOrder =foodOrder.retriveFoodOrder();				
+			break;
+			case 6:
+				JOptionPane.showMessageDialog(null, "Exit,Bye");
+			break;
 
-    String MenuString = JOptionPane.showInputDialog(null, " Choose number: ");
-    MenuList = Integer.parseInt(MenuString);
+			default:
+				break;
+			}
+			
+		
+		} while (MenuList != 7);
+	}
 
-
-    if(MenuList==1) { 
-        System.out.println();
-        Map map = new HashMap();
-        map.put("hotdog", 5);
-        map.put("donut", 15);
-        map.put("eggpie", 25);
-        map.put("pizza", 35);
-        map.put("lasagna", 45);
-
-        String[] list = {"hotdog","donut","eggpie","pizza","lasagna"};
-        int[] cost = {5,15,25,35,45};
-        int[] price = {10,20,30,40,50};
-        int[] qty ={5,5,5,5,5};
-        System.out.println("item"+"\tcost"+"\tSelling"+"\tinv qty");
-        for (int m=0; m<list.length;m++) {
-            System.out.println(list[m]+"\t"+cost[m]+"\t\t"+price[m]+"\t\t"+qty[m]);
-        }
-
-        myOrder = "";
-        ArrayList<String> Orders = new ArrayList<String>();
-        int totalbillamount = 0;
-        for (int i = 0; i < 5; i++) { 
-            String input = (String) JOptionPane.showInputDialog(null,
-                "Select an Item", "Welcome " +  "!",
-                JOptionPane.QUESTION_MESSAGE, null, list, "Hotdog");
-
-                int itemQty = 0;
-                String itemq = JOptionPane.showInputDialog(null,"Input Quantity");
-                itemQty = Integer.parseInt(itemq);
-
-                if(itemQty<1 ||itemQty>5){ 
-                 JOptionPane.showMessageDialog(null,"Invalid!");
-                itemq = JOptionPane.showInputDialog(null,"Input Quantity");
-                }
-
-            int subtotal = 0;
-            subtotal = itemQty * Integer.parseInt(map.get(input).toString());
-            totalbillamount += subtotal;
-            Orders.add("Item " + input + "  Quantity " + itemq + " Price "+subtotal);
-        }
-        Orders.add("Total Bill Amount of your order is "+totalbillamount);
-
-        for(String s : Orders){
-            myOrder += "\n" + s; 
-        }
-     } else if(MenuList==2) {            
-        JOptionPane.showMessageDialog(null,"sales \n" + myOrder);   
-    } else if(MenuList==3) {
-        JOptionPane.showMessageDialog(null,myOrder);
-    } else if(MenuList==4) {
-        JOptionPane.showMessageDialog(null,"Exit,Bye");
-    } else {
-        System.out.print("Invalid");
-    }
-            }while(MenuList != 4); 
-}
+	public static void RetrieveFlightInfo() {
+		FlightClass flight = new FlightClass();
+		flight.retrieveFligthInfo();
+	}
+	
+	
+	
 }

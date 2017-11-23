@@ -15,14 +15,17 @@ public class CustomerTest {
 		
 		
 		//Prepare
-		Customer customer= new Customer(1, 2, "sujitha", "yeruva", "07332", "sujitha@");
+		Customer customer1= new Customer(1, 2, "sujitha", "yeruva", "07332", "sujitha@");
+		Customer customer2= new Customer(1, 2, "staffan", "arveng", "07332", "staffan@");
+		Customer customer3= new Customer(1, 2, "daniel", "", "07332", "daniel@");
 		//Act
-		customer.setPreference(2, 'c');
 		
-		Booking booking = new Booking(customer);
-		booking.AddBooking(customer);
+		Booking booking = new Booking(customer1);
+		booking.AddBooking(customer1);
+		booking.AddBooking(customer2);
+		booking.AddBooking(customer3);
 		//Assert
-		assertTrue(booking.getNumberOfBookings()==1);
+		assertTrue(booking.getNumberOfBookings()==3);
 		
 	}
 	
