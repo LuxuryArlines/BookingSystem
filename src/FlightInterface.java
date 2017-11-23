@@ -1,5 +1,5 @@
 
-public interface Aeroplane {
+public interface FlightInterface {
 	 public void menu();
 		
 	 public  double quantity();

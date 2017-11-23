@@ -13,7 +13,7 @@ public class Main {
 		Customer customer= new Customer(1, 2, "sujitha", "yeruva", "07332", "sujitha");
 		if (guiEnabled==false) {
 		
-			customer.setPreference(2, 'c');
+//			customer.setPreference(2, 'c');
 //			Aeroplane a = new EcnomicClass();
 //			a.executeOperation(0);
 			

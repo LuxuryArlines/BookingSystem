@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 
 public class FoodOrder {
+	public int totalSumForFood=0;
 	public FoodOrder() {
 
 	}
@@ -50,7 +51,7 @@ public class FoodOrder {
 			Orders.add("Item " + input + "  Quantity " + itemq + " Price " + subtotal);
 		}
 		Orders.add("Total Bill Amount of your order is " + totalbillamount);
-
+		totalSumForFood= totalbillamount;
 		for (String s : Orders) {
 			myOrder += "\n" + s;
 		}

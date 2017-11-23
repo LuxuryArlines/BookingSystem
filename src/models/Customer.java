@@ -14,6 +14,7 @@ public class Customer {
 	private int seat;
 	private final double seat_price = 20000;
 	private final double seat_budget_price=5000;
+	public double totalPriceForThisCustomer=0;
 	
 //	private List seatArray = new ListArray[int];
 	private ArrayList<String> seatList = new ArrayList<String>();
@@ -42,7 +43,11 @@ public class Customer {
 
 		System.out.println(" Do you want to travel first class(f) or business class(b)?");
 		classSelection = sc.next();
-		
+		if (classSelection.equals("f")){
+			totalPriceForThisCustomer=seat_price;
+		}else {
+			totalPriceForThisCustomer=seat_budget_price;
+		}
 //		System.out.println(20000 + "for first class");
 
 		System.out.println("what seat would you like to sit on? ");
@@ -104,7 +109,7 @@ public class Customer {
 		return newSeat;
 	}
 
-	public void setPreference(int newRow, int newSeat) {
-
-	}
+//	public void setPreference(int newRow, int newSeat) {
+//
+//	}
 }

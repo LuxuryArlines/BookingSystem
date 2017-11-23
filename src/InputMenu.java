@@ -1,9 +1,7 @@
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.JOptionPane;
 
+import models.Booking;
 import models.Customer;
 
 public class InputMenu {
@@ -11,6 +9,9 @@ public class InputMenu {
 
 		int MenuList;
 		String myOrder="";
+		
+		Booking booking = new Booking();
+		
 		do {
 			System.out.println("---MENU---");
 			String[] menu = { "[1]Flight", "[2]Customer/passenger", "[3]Print total",
@@ -29,7 +30,10 @@ public class InputMenu {
 			break;
 			case 2:
 				Customer customer = new Customer(1, 2, "sujitha", "yeruva", "07332", "sujitha");
-				customer.setPreference(2, 'c');
+
+				booking.AddBooking(customer);
+				
+//				customer.setPreference(2, 'c');
 			break;
 			case 3:
 				JOptionPane.showMessageDialog(null, myOrder);
